@@ -1,0 +1,1 @@
+{"description":"Exact bounded-spare proof checked against retained pre-optimization scenario outcomes","horizon":80,"policy_runs_checked":21,"repair_multiplier":2,"result":"all serialized outcome metrics identical","scenarios":3,"stress":"stressed"}

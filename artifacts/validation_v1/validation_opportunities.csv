@@ -1,0 +1,55 @@
+stress_level,repair_multiplier,policy,review_weeks,multi_candidate_weeks,multi_candidate_share,b2_b3_b4_different_tail_share,expedite_spare_count,add_crew_shift_count,add_bay_count,power_note
+benign,1.5,B0,1200,0,0,0,0,0,0,No attention-based intervention policy.
+benign,1.5,B1,1200,0,0,0,0,0,0,No attention-based intervention policy.
+benign,1.5,B2-K0,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,1.5,B2,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,1.5,B3,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,1.5,B4,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,2,B0,1200,0,0,0,0,0,0,No attention-based intervention policy.
+benign,2,B1,1200,0,0,0,0,0,0,No attention-based intervention policy.
+benign,2,B2-K0,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,2,B2,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,2,B3,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,2,B4,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,3,B0,1200,0,0,0,0,0,0,No attention-based intervention policy.
+benign,3,B1,1200,0,0,0,0,0,0,No attention-based intervention policy.
+benign,3,B2-K0,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,3,B2,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,3,B3,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+benign,3,B4,1200,200,0.166666666667,0,0,0,0,"Few competing-tail weeks: test lacks power to distinguish attention rules; descriptive warning, not a formal power calculation."
+moderate,1.5,B0,1200,0,0,0.286666666667,0,0,0,No attention-based intervention policy.
+moderate,1.5,B1,1200,0,0,0.286666666667,0,0,0,No attention-based intervention policy.
+moderate,1.5,B2-K0,1200,401,0.334166666667,0.286666666667,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,1.5,B2,1200,401,0.334166666667,0.286666666667,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,1.5,B3,1200,401,0.334166666667,0.286666666667,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,1.5,B4,1200,401,0.334166666667,0.286666666667,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,2,B0,1200,0,0,0.2875,0,0,0,No attention-based intervention policy.
+moderate,2,B1,1200,0,0,0.2875,0,0,0,No attention-based intervention policy.
+moderate,2,B2-K0,1200,401,0.334166666667,0.2875,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,2,B2,1200,401,0.334166666667,0.2875,0,3,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,2,B3,1200,401,0.334166666667,0.2875,0,3,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,2,B4,1200,401,0.334166666667,0.2875,0,3,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,3,B0,1200,0,0,0.289166666667,0,0,0,No attention-based intervention policy.
+moderate,3,B1,1200,0,0,0.289166666667,0,0,0,No attention-based intervention policy.
+moderate,3,B2-K0,1200,401,0.334166666667,0.289166666667,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,3,B2,1200,401,0.334166666667,0.289166666667,0,10,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,3,B3,1200,401,0.334166666667,0.289166666667,0,10,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+moderate,3,B4,1200,401,0.334166666667,0.289166666667,0,10,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,1.5,B0,1200,0,0,0.219166666667,0,0,0,No attention-based intervention policy.
+stressed,1.5,B1,1200,0,0,0.219166666667,0,0,0,No attention-based intervention policy.
+stressed,1.5,B2-K0,1200,605,0.504166666667,0.219166666667,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,1.5,B2,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,1.5,B3,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,1.5,B4,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,2,B0,1200,0,0,0.219166666667,0,0,0,No attention-based intervention policy.
+stressed,2,B1,1200,0,0,0.219166666667,0,0,0,No attention-based intervention policy.
+stressed,2,B2-K0,1200,605,0.504166666667,0.219166666667,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,2,B2,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,2,B3,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,2,B4,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,3,B0,1200,0,0,0.219166666667,0,0,0,No attention-based intervention policy.
+stressed,3,B1,1200,0,0,0.219166666667,0,0,0,No attention-based intervention policy.
+stressed,3,B2-K0,1200,605,0.504166666667,0.219166666667,0,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,3,B2,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,3,B3,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.
+stressed,3,B4,1200,565,0.470833333333,0.219166666667,167,0,0,Opportunity share is descriptive; ties do not establish policy equivalence.

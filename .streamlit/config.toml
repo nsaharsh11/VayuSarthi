@@ -1,0 +1,20 @@
+[browser]
+gatherUsageStats = false
+serverAddress = "127.0.0.1"
+
+[server]
+address = "127.0.0.1"
+port = 8501
+headless = true
+fileWatcherType = "none"
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#147D92"
+backgroundColor = "#F5F7FA"
+secondaryBackgroundColor = "#E8EDF3"
+textColor = "#182B3A"
+font = "sans-serif"

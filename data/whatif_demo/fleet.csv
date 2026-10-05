@@ -1,0 +1,7 @@
+tail_id,rul_point,lower,upper,rate,duration,part_number,source,updated_day,data_label
+T-01,4,3.47785935579,4.52214064421,2,2,PN-DEMO,assumed_whatif_scenario,0,Fictional what-if story; RUL ranges and man-hour costs are assumed scenario inputs.
+T-02,8,7.30508705487,8.69491294513,2,2,PN-DEMO,assumed_whatif_scenario,0,Fictional what-if story; RUL ranges and man-hour costs are assumed scenario inputs.
+T-03,12,11.456037341,12.543962659,2,2,PN-DEMO,assumed_whatif_scenario,0,Fictional what-if story; RUL ranges and man-hour costs are assumed scenario inputs.
+T-04,40,24,56,2,3,PN-FOCAL,assumed_whatif_scenario,0,Fictional what-if story; RUL ranges and man-hour costs are assumed scenario inputs.
+T-05,80,76.128902143,83.871097857,2,2,PN-DEMO,assumed_whatif_scenario,0,Fictional what-if story; RUL ranges and man-hour costs are assumed scenario inputs.
+T-06,120,116.032555972,123.967444028,2,2,PN-DEMO,assumed_whatif_scenario,0,Fictional what-if story; RUL ranges and man-hour costs are assumed scenario inputs.

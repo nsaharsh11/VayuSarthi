@@ -1,0 +1,13 @@
+# Test-only CP-SAT environment: install separately from the application venv.
+# OR-Tools requires NumPy >=2; the application deliberately retains its lock.
+ortools==9.15.6755
+absl-py==2.4.0
+immutabledict==4.3.1
+numpy==2.2.6
+pandas==2.3.3
+protobuf==6.33.5
+typing-extensions==4.15.0
+python-dateutil==2.9.0.post0
+pytz==2026.1.post1
+six==1.17.0
+tzdata==2025.3

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools==69.5.1", "wheel==0.46.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vayu-sarthi"
+version = "0.2.0"
+description = "Offline planning attention for a fictional aircraft fleet"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy==1.26.4", "pandas==2.3.3", "scikit-learn==1.6.1",
+  "lightgbm==4.6.0", "streamlit==1.65.0", "plotly==6.9.0",
+  "openpyxl==3.1.5", "pytest==9.0.3", "pydantic==2.7.4", "PyYAML==6.0.3",
+  "joblib==1.5.3"
+]
+
+[project.optional-dependencies]
+parquet = ["pyarrow>=14"]
+
+[project.scripts]
+pdm = "pdm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src", "."]
+include = ["pdm*", "vayu*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+addopts = "-ra"
