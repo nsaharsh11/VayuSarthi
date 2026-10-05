@@ -1,10 +1,47 @@
 # Vayu Sarthi
 
+![Fictional civilian aircraft and engine stand in a bright maintenance hangar](ui/assets/hangar.png)
+
+*Concept illustration of fictional aircraft maintenance; not fleet evidence.*
+
 Offline decision support for maintenance planning and fleet availability,
 created for the user-supplied SIH26249 problem. All fleet data is fictional or
 simulated. NASA C-MAPSS FD001 provides benchmark replay, not aircraft data.
 One engine module represents each fictional civilian tail. A human reviews
 each proposed plan; recording approval does not execute maintenance.
+
+**Check the data. Understand the placement. Compare a change. Record a review.**
+
+![Workflow from four-silo quality checks through fleet planning, what-if comparisons and a named human review](ui/assets/workflow.svg)
+
+## Explore the workspace
+
+![Current local workspace with the fictional-data banner and generated fleet counts](reports/ui_overview.jpg)
+
+| View | What it helps you do |
+| --- | --- |
+| Data | Inspect the four silos, quality badges and quarantined records. |
+| Fleet board | Select a tail, read why it received its placement, and explore RUL ranges and the hangar timeline. |
+| What-if | Compare ranked resource actions, retain No effect rows, and inspect spare-arrival sensitivity. |
+| Approvals | Record a named decision with a reason, preserve pins, and verify the local audit chain. |
+| Validation | Read stored simulated outcomes, paired differences, intervals and exact ties. |
+
+The native light theme uses local artwork and system fonts. No image service,
+remote font, CDN or cloud service is needed when the app runs. The artwork's
+provenance is in [ui/assets/README.md](ui/assets/README.md).
+
+### The T-04 walkthrough
+
+Start on **Fleet board** with T-04 selected. Open **What-if**, then choose
+**Expedite S2 by 5 days** to see the generated before/after placement and label
+change. The crew-shift comparison retains its No effect row. Continue to
+**Approvals** to record a reviewer name and reason, or open **Data** and load
+the corrupted copy to demonstrate the planning hold. **Reset demo** restores
+the assumed story while preserving audit history.
+
+![T-04 before-and-after comparison from the fictional demo](reports/ui_phase17.jpg)
+
+*Recorded prototype screen; the live view reads the current plan and comparison.*
 
 ## Run locally
 

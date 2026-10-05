@@ -14,7 +14,21 @@ toolbarMode = "minimal"
 [theme]
 base = "light"
 primaryColor = "#147D92"
-backgroundColor = "#F5F7FA"
-secondaryBackgroundColor = "#E8EDF3"
+backgroundColor = "#FBFCFD"
+secondaryBackgroundColor = "#F0F5F7"
 textColor = "#182B3A"
 font = "sans-serif"
+borderColor = "#D9E5EA"
+baseRadius = "large"
+buttonRadius = "medium"
+showWidgetBorder = true
+showSidebarBorder = true
+dataframeHeaderBackgroundColor = "#EAF2F5"
+dataframeHeaderTextColor = "#182B3A"
+headingFontWeights = [700, 650, 600, 600, 600, 600]
+chartCategoricalColors = ["#147D92", "#C98A2B", "#9263A3", "#768798", "#0B4F5E"]
+
+[theme.sidebar]
+backgroundColor = "#EEF4F6"
+secondaryBackgroundColor = "#FFFFFF"
+borderColor = "#D9E5EA"

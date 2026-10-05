@@ -250,6 +250,16 @@ python scripts/tasks.py test suite and commit each completed phase):
   The backup remains ignored and outside the new history. Do not push or add
   a remote; the user will configure the remote.
 
+- Phase 21 (published-repository presentation request): add original local
+  aircraft/hangar imagery, a workflow graphic and brand assets; improve native
+  light-theme layout, tab guidance, resource context and the GitHub README.
+  Preserve the existing planner, policy definitions, evidence, review flow,
+  data hold and T-04 story. No new dependencies or runtime network calls.
+  Label illustrative imagery and maintain accessible descriptions. Done:
+  offline asset/UI checks and the full test task pass; inspect the rendered
+  app and commit the presentation revision locally without pushing or
+  rewriting the published history.
+
 The subsequent original phase numbering applies only to the historical design.
 
 Audience: an AI coding agent (Codex) building this in a fresh repo. No timeline. Work in **dependency order**, one phase at a time, and do not start a phase until the previous phase's "Done when" checks pass.

@@ -21,6 +21,7 @@ from vayu.sim import (story_silos, POLICY_NAMES, PAIRED_POLICIES, VALIDATION_MET
 from vayu.whatif import ScenarioSnapshot, WhatIfExplorer, default_interventions
 
 ROOT = Path(__file__).resolve().parent
+ASSETS = ROOT/'ui/assets'
 DATABASE = Path(os.environ.get('VAYU_DB_PATH', str(ROOT/'data/maintenance.db')))
 VALIDATION_DIR = Path(os.environ.get('VAYU_VALIDATION_DIR', str(ROOT/'artifacts')))
 BANNER = 'Fictional fleet and simulated engine data, decision support only'
@@ -30,12 +31,6 @@ LABEL_COLORS = {'Covered': '#147D92', 'Fragile': '#C98A2B'}
 PILL_COLORS = {'Covered': 'green', 'Fragile': 'orange', 'Good': 'green', 'Stale': 'orange', 'Conflict': 'red'}
 POLICY_COLORS = {'B0': '#768798', 'B1': '#A9B6C3', 'B2-K0': '#ADAF8B',
                  'B2': '#C98A2B', 'B3': '#147D92', 'B4': '#0B4F5E', 'B4b':'#9263A3'}
-STYLE = """
-<style>
-div[data-testid="stMetric"] {background: linear-gradient(135deg,#F4F9FB,#FFFFFF); border-radius: 12px;}
-h1 {letter-spacing: -0.02em;}
-</style>
-"""
 
 
 def source_digest(paths: list[Path]) -> str:
@@ -271,26 +266,42 @@ def reset_demo() -> None:
 
 
 st.set_page_config(page_title='Vayu Sarthi', page_icon=':material/flight:', layout='wide')
-st.markdown(STYLE, unsafe_allow_html=True)
-st.title('Vayu Sarthi')
-st.caption('SIH26249 · Predictive maintenance & fleet availability · Offline prototype')
+st.logo(ASSETS/'wordmark.svg', size='large', icon_image=':material/flight:')
+with st.container(border=True):
+    intro, illustration = st.columns([1, 1.25], vertical_alignment='center', gap='large')
+    with intro:
+        st.badge('Offline planning workspace', color='blue', icon=':material/flight:')
+        st.title('Vayu Sarthi')
+        st.markdown('**A clearer next step for aircraft maintenance.**')
+        st.caption('Bring engine estimates, maintenance deadlines and shared resources '
+                   'into one reviewable plan. Compare a change before recording a decision.')
+        st.caption('SIH26249 · Predictive maintenance & fleet availability')
+    with illustration:
+        st.image(ASSETS/'hangar.png', width='stretch',
+                 alt='Fictional aircraft in a bright maintenance hangar with an engine on a stand')
+        st.caption('Concept illustration · fictional civilian aircraft, not fleet evidence.')
 st.info(BANNER)
 st.session_state.setdefault('corrupted_pack', False)
 st.session_state.setdefault('last_comparison', None)
 st.session_state.setdefault('review_flash', None)
 
 with st.sidebar:
-    st.subheader('Planning snapshot')
+    st.subheader('Planning snapshot', icon=':material/tune:')
     scenario = st.selectbox('Demo pack', [STORY, 'Four-silo fleet'], key='scenario', on_change=reset_scenario)
     st.caption('Assumed ranges and diagnostic checks.' if scenario == STORY else
                'Fictional fleet joined to cached NASA FD001 engine estimates.')
-    st.caption('Day 0 · Spare horizon day 40 · Buffer 0 cycles')
+    snapshot_caption = st.empty()
     with st.expander('Sensitivity settings'):
         radius = int(st.number_input('Float search bound R (cycles)', min_value=0, max_value=250,
                                      value=40, key='radius'))
     st.caption('Covered / Fragile indicate planning attention. A reviewer decides on every placement.')
-    st.button('Reset demo',key='reset_demo',on_click=reset_demo,
+    st.button('Reset demo',key='reset_demo',on_click=reset_demo, icon=':material/restart_alt:', width='stretch',
               help='Restore the clean T-04 story and release its pins. Audit history and files are preserved.')
+    with st.expander('Demo walkthrough'):
+        st.markdown('1. Select **T-04** on the Fleet board.\n'
+                    '2. Open **What-if** and compare an S2 expedite.\n'
+                    '3. Open **Approvals** to record a name and reason.')
+        st.caption('Use Data to demonstrate a corrupted-data hold; Validation shows stored scenario results.')
 
 if st.session_state.get('reset_error'):
     st.error(st.session_state.reset_error)
@@ -301,7 +312,9 @@ tabs = st.tabs(['Data', 'Fleet board', 'What-if', 'Approvals', 'Validation'], de
                key='main_tabs', on_change='rerun')
 if tabs[0].open:
     with tabs[0]:
-        st.subheader('Four data silos')
+        st.subheader('Four data silos', icon=':material/database:')
+        st.caption('Start with the source records. Hard-check failures hold planning; '
+                   'quality badges and quarantine explain what needs attention.')
         st.toggle('Load corrupted pack (demo)', key='corrupted_pack',
                   persist_state='session',
                   help='Changes a copy in memory; original CSV files remain available.')
@@ -359,6 +372,10 @@ if planning_hold:
         for reason in (*quality.reasons, *((source_error,) if source_error else ())):
             st.caption(reason)
 
+snapshot_caption.caption(
+    f'Day {state.today} · Spare horizon day {state.horizon} · Buffer {state.safety_buffer:g} cycles'
+    if state is not None else 'Planning paused · review the source inputs.')
+
 with cards:
     with st.container(horizontal=True):
         if current is not None and not planning_hold:
@@ -403,7 +420,9 @@ if tabs[0].open:
 
 if tabs[1].open and current is not None and not planning_hold:
     with tabs[1]:
-        st.subheader('Proposed fleet placements')
+        st.subheader('Proposed fleet placements', icon=':material/flight:')
+        st.caption('Select a tail to understand its placement, then compare an intervention in What-if. '
+                   'Covered and Fragile are planning-attention labels.')
         board = fleet_table(state, current)
         default_row = int(board.index[board.Tail == 'T-04'][0]) if 'T-04' in set(board.Tail) else 0
         selection = st.dataframe(board, hide_index=True, key='fleet_board', on_select='rerun',
@@ -433,7 +452,13 @@ if tabs[1].open and current is not None and not planning_hold:
             st.plotly_chart(rul_range_chart(state, current, tail_id), key='rul_ranges',
                             alt='Remaining useful life range bars with point estimates for each fictional tail',
                             config={'displaylogo': False})
-        st.markdown('**Hangar timeline**')
+        st.subheader('Hangar & resource plan', icon=':material/calendar_month:')
+        with st.container(horizontal=True):
+            st.metric('Maintenance bays', len(state.bays), border=True)
+            st.metric('Technician crews', len(state.crews), border=True)
+            st.metric('Spare engines in pack', len(state.spares), border=True)
+        st.caption('Counts describe the selected fictional pack. Bays and crews are reusable; '
+                   'each induction consumes a spare. Diamonds mark induction-start deadlines.')
         st.plotly_chart(hangar_timeline(state, current), key='hangar_timeline',
                         alt='Proposed induction intervals for the fictional fleet with deadline markers',
                         config={'displaylogo': False})
@@ -442,7 +467,9 @@ if tabs[1].open and current is not None and not planning_hold:
 
 if tabs[2].open and current is not None and not planning_hold:
     with tabs[2]:
-        st.subheader('Ranked what-if interventions')
+        st.subheader('Ranked what-if interventions', icon=':material/compare_arrows:')
+        st.caption('Choose a tail, compare a resource action, and read the before/after changes. '
+                   'A comparison leaves the current plan unchanged.')
         ids = sorted(t.tail_id for t in state.tails)
         tail_id = st.selectbox('Tail', ids, index=ids.index('T-04') if 'T-04' in ids else 0, key='whatif_tail')
         ranked = ranked_results(state, radius, pins)
@@ -480,7 +507,8 @@ if tabs[2].open and current is not None and not planning_hold:
         quick = [key for key in (f'EXPEDITE:{focal.spare}', 'ADD:CREW') if key in by_id]
         with st.container(horizontal=True):
             for key in quick:
-                if st.button(names[key], key=f'quick_{key}', type='primary' if key.startswith('EXPEDITE:') else 'secondary'):
+                if st.button(names[key], key=f'quick_{key}', type='primary' if key.startswith('EXPEDITE:') else 'secondary',
+                             icon=':material/local_shipping:' if key.startswith('EXPEDITE:') else ':material/groups:'):
                     st.session_state.last_comparison = (context, key)
                     requested_comparison = key
         with st.form('whatif'):
@@ -562,7 +590,7 @@ if tabs[2].open and current is not None and not planning_hold:
 
 if tabs[3].open and current is not None and not planning_hold:
     with tabs[3]:
-        st.subheader('Human placement review')
+        st.subheader('Human placement review', icon=':material/fact_check:')
         st.caption('Approve or reject a proposed placement, or pin exact resources and a start day. Recording a review executes no maintenance.')
         flash = st.session_state.pop('review_flash', None)
         if flash:
@@ -627,7 +655,9 @@ if tabs[3].open and current is not None and not planning_hold:
 
 if tabs[4].open:
     with tabs[4]:
-        st.subheader('Monte Carlo policy validation')
+        st.subheader('Monte Carlo policy validation', icon=':material/analytics:')
+        st.caption('Explore the frozen scenario comparisons below. The tables and confidence intervals '
+                   'come from the saved validation report; ties remain visible.')
         st.info(VALIDATION_NOTE)
         try:
             csv_path = VALIDATION_DIR/'validation.csv'
@@ -729,6 +759,13 @@ if tabs[4].open:
             st.warning(f'Generated validation report unavailable: {error}. Run python scripts/tasks.py validation offline.')
 
 st.divider()
+with st.expander('How to use this prototype'):
+    st.image(ASSETS/'workflow.svg', width='stretch',
+             alt='Check data, build a resource plan, compare actions, then record a human review')
+    st.caption('Data checks protect the planning inputs. Fleet board explains placements. '
+               'What-if compares assumed changes. Approvals records a named review. '
+               'Validation separately explores stored simulated scenario results.')
+
 with st.expander('Model metrics · NASA FD001 benchmark'):
     metrics_path = ROOT/'artifacts/rul_metrics.json'
     try:

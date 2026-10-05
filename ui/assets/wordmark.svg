@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="304" height="56" viewBox="0 0 304 56" role="img" aria-labelledby="title desc">
+  <title id="title">Vayu Sarthi</title>
+  <desc id="desc">A teal aircraft mark beside the Vayu Sarthi name.</desc>
+  <rect x="1" y="1" width="54" height="54" rx="15" fill="#147D92"/>
+  <path d="M27 9c-2 0-3 2-3 5v10L10 34v4l14-5v9l-4 4v3l7-2 7 2v-3l-4-4v-9l14 5v-4L30 24V14c0-3-1-5-3-5Z" fill="#FFFFFF"/>
+  <text x="70" y="31" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#182B3A">Vayu Sarthi</text>
+  <text x="71" y="49" font-family="Arial, sans-serif" font-size="10" letter-spacing="2.1" fill="#536C7B">FLEET PLANNING</text>
+</svg>

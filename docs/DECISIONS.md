@@ -1,5 +1,28 @@
 # Build decisions
 
+## Phase 21: offline visual presentation (2026-10-05)
+
+The user published the existing repository and requested images and general
+presentation improvements. Add an original locally stored hangar illustration,
+a project wordmark, an explanatory workflow graphic, clearer tab introductions,
+resource context and a visual README. The hangar scene is a generated concept
+illustration, explicitly labelled fictional; it is neither a fleet photograph
+nor evidence of resource counts or measured performance. Image generation is
+a preparation step only. The app never calls an image service or other model.
+
+Use native Streamlit theme settings and responsive containers, replacing the
+existing CSS injection. Keep system fonts and local assets; add no dependency,
+remote image, CDN, telemetry, new action type or simulation policy. Preserve
+all tab/widget keys, the default T-04 story, the fictional-data banner, the
+planning hold, named review requirements, Reset demo, and unscored inspection.
+Resource cards read the selected PlanningState; explanatory diagrams contain
+no invented result values. Validation continues to read its existing CSV.
+
+The published history is retained. This presentation revision does not rewrite
+history, modify recorded result files, rerun validation scenarios, or push.
+Add offline asset/UI checks first, run the full test task and commit locally.
+Record image provenance and the generation prompt alongside the assets.
+
 ## Authorized local-history privacy scrub (2026-10-05)
 
 The user explicitly authorized rewriting unpublished local history and asked

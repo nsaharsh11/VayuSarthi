@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="220" viewBox="0 0 1080 220" role="img" aria-labelledby="title desc">
+  <title id="title">From source records to a reviewed placement</title>
+  <desc id="desc">Check data, build a resource plan, compare actions, and record a human review. All fleet inputs are fictional.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#147D92"/></marker>
+  </defs>
+  <g font-family="Arial, sans-serif">
+    <rect x="8" y="16" width="238" height="172" rx="16" fill="#F0F7F8" stroke="#D9E5EA"/>
+    <rect x="282" y="16" width="238" height="172" rx="16" fill="#F0F7F8" stroke="#D9E5EA"/>
+    <rect x="556" y="16" width="238" height="172" rx="16" fill="#FFF8EB" stroke="#EEDDBA"/>
+    <rect x="830" y="16" width="238" height="172" rx="16" fill="#F0F7F8" stroke="#D9E5EA"/>
+    <g fill="#147D92" font-size="14" font-weight="700">
+      <text x="28" y="49">01 · DATA</text><text x="302" y="49">02 · FLEET BOARD</text>
+      <text x="576" y="49" fill="#8C6119">03 · WHAT-IF</text><text x="850" y="49">04 · APPROVALS</text>
+    </g>
+    <g fill="#182B3A" font-size="22" font-weight="700">
+      <text x="28" y="88">Check data</text><text x="302" y="88">Build a plan</text>
+      <text x="576" y="88">Compare actions</text><text x="850" y="88">Record a review</text>
+    </g>
+    <g fill="#536C7B" font-size="15">
+      <text x="28" y="122">Four silos, quality badges</text><text x="28" y="147">and a quarantine gate.</text>
+      <text x="302" y="122">Deadlines, ranges, bays,</text><text x="302" y="147">crews and spare engines.</text>
+      <text x="576" y="122">Assumed costs, effects</text><text x="576" y="147">and placement changes.</text>
+      <text x="850" y="122">A name, a reason and</text><text x="850" y="147">a verified local audit.</text>
+    </g>
+    <g stroke="#147D92" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M250 104H273"/><path d="M524 104H547"/><path d="M798 104H821"/>
+    </g>
+    <text x="540" y="212" text-anchor="middle" font-size="13" fill="#536C7B">Fictional data · assumed interventions · human decision support</text>
+  </g>
+</svg>
